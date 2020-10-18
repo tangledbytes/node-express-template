@@ -14,7 +14,7 @@ class UseCaseError extends Error {
    * @return {string} error type from the class name
    */
   private getErrorType(): string {
-    return this.constructor.name.toUpperCase();
+    return this.constructor.name.toString();
   }
 }
 
