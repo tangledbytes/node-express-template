@@ -1,5 +1,4 @@
-import Result from '../Result';
-import UseCaseError from '../UseCaseError';
+import { Result, UseCaseError } from '..';
 
 test('#getValue when the value is present should return the value', () => {
   const val1 = 'success';
