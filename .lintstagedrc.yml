@@ -1,0 +1,7 @@
+'*.{ts,js}':
+  - prettier --write
+  - eslint --fix
+  - jest --findRelatedTests
+  - tsc --noEmit
+'*.{json,md,yml}':
+  - prettier --write

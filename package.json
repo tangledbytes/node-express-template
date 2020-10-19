@@ -24,12 +24,6 @@
     "validate": "npm run format:check && npm run type-check && npm run test",
     "setup": "npm install && npm run validate"
   },
-  "lint-staged": {
-    "**/*.+(ts|js|json|md)": [
-      "prettier",
-      "jest --findRelatedTests"
-    ]
-  },
   "jest-runner-eslint": {
     "cliOptions": {
       "ignorePath": ".gitignore",
