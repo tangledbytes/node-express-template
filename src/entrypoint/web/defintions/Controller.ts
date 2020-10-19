@@ -71,9 +71,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * sends the generated reponse if any
    * @param {Response} res
    * @param {T} dto
-   * @return {Response<any>}
+   * @return {Response<unknown>}
    */
-  protected ok<T>(res: Response, dto?: T): Response<any> {
+  protected ok<T>(res: Response, dto?: T): Response<unknown> {
     if (dto) return res.status(200).json(dto);
     return res.sendStatus(200);
   }
@@ -83,9 +83,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * sends the generated reponse if any
    * @param {Response} res
    * @param {T} payload
-   * @return {{}}
+   * @return {Response<unknown>}
    */
-  protected created<T>(res: Response, payload?: T): {} {
+  protected created<T>(res: Response, payload?: T): Response<unknown> {
     if (payload) return res.status(201).json(payload);
     return res.sendStatus(201);
   }
@@ -95,9 +95,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * also sends error if any
    * @param {Response} res
    * @param {Error | string} error
-   * @return {Response<any>}
+   * @return {Response<unknown>}
    */
-  protected fail(res: Response, error: Error | string): Response<any> {
+  protected fail(res: Response, error: Error | string): Response<unknown> {
     return res.status(500).json({
       message: error.toString(),
     });
@@ -108,9 +108,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * passed message
    * @param {Response} res
    * @param {string | undefined} message
-   * @return {{}}
+   * @return {Response<unknown>}
    */
-  protected badRequest(res: Response, message?: string): {} {
+  protected badRequest(res: Response, message?: string): Response<unknown> {
     return BaseController.jsonResponse(res, 400, {
       message: message || 'bad requst',
     });
@@ -121,9 +121,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * with the message
    * @param {Response} res
    * @param {string | undefined} message
-   * @return {{}}
+   * @return {Response<unknown>}
    */
-  protected unauthorized(res: Response, message?: string): {} {
+  protected unauthorized(res: Response, message?: string): Response<unknown> {
     return BaseController.jsonResponse(res, 401, {
       message: message || 'Unauthorized',
     });
@@ -134,9 +134,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * with the message
    * @param {Response} res
    * @param {string | undefined} message
-   * @return {{}}
+   * @return {Response<unknown>}
    */
-  protected forbidden(res: Response, message?: string): {} {
+  protected forbidden(res: Response, message?: string): Response<unknown> {
     return BaseController.jsonResponse(res, 403, {
       message: message || 'Forbidden',
     });
@@ -146,9 +146,9 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * notFound sends a 404 response to the http client along witht he message
    * @param {Response} res
    * @param {string | undefined} message
-   * @return {{}}
+   * @return {Response<unknown>}
    */
-  protected notFound(res: Response, message?: string): {} {
+  protected notFound(res: Response, message?: string): Response<unknown> {
     return BaseController.jsonResponse(res, 404, {
       message: message || 'Not found',
     });
@@ -163,10 +163,14 @@ abstract class BaseController<T extends UseCase = UseCase> {
    * the client
    * @param {Response} res
    * @param {number} code
-   * @param {{}} payload
-   * @return {{}}
+   * @param {Record<string, unknown>} payload
+   * @return {Response<unknown>}
    */
-  protected static jsonResponse(res: Response, code: number, payload: {}): {} {
+  protected static jsonResponse(
+    res: Response,
+    code: number,
+    payload: Record<string, unknown>,
+  ): Response<unknown> {
     return res.status(code).json(payload);
   }
 }
