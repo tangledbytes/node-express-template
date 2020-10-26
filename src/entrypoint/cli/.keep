@@ -1,0 +1,2 @@
+A CLI to the application can also be added as an entrypoint using the same usecases. This just to demonstrate the
+benefit of having multiple entrypoints to the application
