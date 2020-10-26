@@ -1,0 +1,4 @@
+This directory should mirror the structure of the rest of the entrypoint structure. It is meant to wire the different
+components of the src directory.
+
+Please refer to the https://github.com/utkarsh-pro/clean-api/tree/master/src/config
