@@ -59,4 +59,7 @@ This is a node-express-template repository which comes in with the following thi
 
 **_This template is highly opiniated and is based on my experience working with node.js and typescipt in production environment. It tries to strictly adhere to the Bob Martin's clean architecture_**
 
-Please see https://github.com/utkarsh-pro/clean-api to see how a real project can be setup using this template
+## NOTES:
+
+1. Change the thresholds in jest.config.js as per the project needs, it is set to lower here as it is a template repository.
+1. Please see https://github.com/utkarsh-pro/clean-api to see how a real project can be setup using this template.
