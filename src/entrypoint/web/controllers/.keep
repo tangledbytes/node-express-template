@@ -1,0 +1,11 @@
+Ideally controllers directory should have versions directories
+Like the following
+
+controllers
+├── v1
+├── v2
+├── v3
+└── v4 ...
+
+Where each version indicates the version of the controllers it has, this approach can help in
+supporting multiple versions by the application
